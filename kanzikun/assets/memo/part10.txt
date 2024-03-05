@@ -1,0 +1,91 @@
+
+class Tweet{
+  final String userName;
+  final String iconUrl ;
+  final String text ;
+  final String coreatedAt;
+  Tweet (this.userName, this.iconUrl, this.text, this.coreatedAt);
+}
+
+final models = [
+  Tweet('たかし','painapple.png','パンナコッタ','2022/1/1'),
+  Tweet('よしき','painapple.png','なんてこった','2022/1/2'),
+  Tweet('まさく','painapple.png','最悪','2022/1/3'),
+  Tweet('ソニー','painapple.png','法律','2022/1/4'),
+  Tweet('ロイ','painapple.png','エッサ','2022/1/5'),
+  Tweet('こん','painapple.png','紅茶','2022/1/6'),
+  Tweet('なむ','painapple.png','食べる','2022/1/7'),
+  Tweet('ごれ','painapple.png','今晩','2022/1/8'),
+];
+
+Widget modelToWidget(Tweet model){
+  final icon = Container(
+    margin: const EdgeInsets.all(20),
+    width: 60,
+    height: 60,
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(30.0),
+      child: Image.asset('./assets/images/${model.iconUrl}'),
+    ),
+  );
+
+  final metaText = Container(
+    padding: const EdgeInsets.all(6),
+    height: 40,
+    alignment: Alignment.centerLeft,
+    child: Text(
+      '${model.userName}  ${model.coreatedAt}',
+      style: const TextStyle(color: Colors.grey),
+    ),
+  );
+
+  final text = Container(
+    padding: const EdgeInsets.all(8),
+    alignment: Alignment.centerLeft,
+    child: Text(
+      model.text,
+      style: const TextStyle(fontWeight: FontWeight.bold),
+    ),
+  );
+
+  return Container(
+    padding: const EdgeInsets.all(1),
+    decoration: BoxDecoration(
+      border: Border.all(color: Colors.blue),
+    ),
+    width: double.infinity,
+    height: 120,
+    child: Row(
+      children: [
+        icon,
+        Expanded(
+          child: Column(children: [
+              metaText,
+              text,
+          ],)
+      )
+      ],
+    ),
+  );
+}
+void main(){
+
+  final list = ListView.builder(
+    itemCount: models.length,
+    itemBuilder: (c,i) => modelToWidget(models[i]),
+  );
+  final con = Center(
+    child: SizedBox(
+      height: 400,
+      child: list,
+    ),
+  );
+
+  final sca = Scaffold(
+    backgroundColor: Colors.grey,
+    body:con,
+  );
+
+  final app = MaterialApp(home: sca);
+  runApp(app);
+}

@@ -1,0 +1,102 @@
+StatelessWidget
+
+class MyWidget extends StatelessWidget{
+  const MyWidget({Key? key}): super(key: key);
+
+  @override
+  Widget build(BuildContext context){
+
+  }
+}
+
+stless これだけで出力できる
+
+------------------------------------------------------------------------------------------
+void main(){
+
+  final counter = Nm_counter(
+    number: 60,
+  );
+
+  // final row = Column(
+  // //   mainAxisAlignment: MainAxisAlignment.center, //縦の位置を決めれる
+  // //   crossAxisAlignment: CrossAxisAlignment.center, //横の位置を決めれる
+  // //   mainAxisSize: MainAxisSize.min, //カラムの見えない部分を文字がある部分だけの最小にしてくれる
+  //   children: [
+  //     const Text('レモン'),
+  //     // Image.asset(
+  //     //   'assets/images/painapple.png'
+  //     //   )
+      
+  //   ]
+  // final img = Image.network(
+  //   'https://illust8.com/wp-content/uploads/2018/06/fruit_apple_illust_150.png'
+  // );
+  // // );
+  // // final con = Container(
+  // //   color: Colors.deepOrange,
+  // //   width:350,
+  // //   height: 100,
+  // //   child: img,
+  // //   alignment: Alignment.centerLeft,
+  // //   padding: EdgeInsets.fromLTRB(20,20,20,20),
+  // // );
+  // xxx() {
+  //   debugPrint('ここから通信を始めます');
+  //   debugPrint('通信中です');
+  //   debugPrint('通信が終わりました');
+
+  // }
+
+  final controller = TextEditingController();
+
+  xxx() {
+    debugPrint( controller.text);
+  }
+  final button = ElevatedButton(
+    onPressed: xxx,
+    child: const Text('押してみて'),
+    );
+
+  final textField = TextField(
+    controller: controller,
+    decoration: InputDecoration(
+      border: OutlineInputBorder(),
+      labelText: 'あなたの名前',
+      hintText: '全角で入力',
+      // errorText: '全角ではありません',
+    ),
+
+  );
+
+  final b = MaterialApp(
+    home: Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children:[
+            Container(
+              width: 300,
+              child: textField,
+            ),
+          button,
+          ],
+        ),
+      )
+    )
+  );
+  runApp(b);
+}
+----------------------------------------------------------------------------------------
+第８回までのコード
+
+MaterialAppの中身
+title
+home
+
+homeの中身
+appBar
+body
+
+bodyの中身
+child
